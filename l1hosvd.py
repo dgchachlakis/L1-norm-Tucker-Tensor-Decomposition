@@ -1,9 +1,8 @@
 import tensorly as tl
-import numpy as np
-import matplotlib.pyplot as plt
-from scipy import linalg
+from l1pca_fixedpoint import *
+from l1pca_bitflipping import *
 
-def l1hosvd(tensor, tensor_ranks, Qinit=[],solver="fixedpoint", verbose=False, tol=1e-6):
+def l1hosvd(tensor, tensor_ranks, Qinit=[], solver="fixedpoint", verbose=False, tol=1e-6):
     ndimensions=tensor.ndim
     tensor_shape=tensor.shape
 
@@ -15,53 +14,19 @@ def l1hosvd(tensor, tensor_ranks, Qinit=[],solver="fixedpoint", verbose=False, t
         factors=Qinit
 
     for n in range(ndimensions):
+        if verbose:
+            print('Computing mode-'+str(n)+' unfolding...')
         nunfolding=tl.unfold(tensor,n)
-        factors[n],junk=l1pca(nunfolding,tensor_ranks[n],factors[n])
-
+        if verbose:
+            print('Solving l1-pca of mode-'+str(n)+' unfolding...')
+        if solver=='fixedpoint':
+            factors[n]=l1pca_fixedpoint(nunfolding, tensor_ranks[n], factors[n], tol=tol)[0]
+        elif solver=='bitflipping':
+            factors[n]=l1pca_bitflipping(nunfolding, tensor_ranks[n], factors[n], tol=tol)[0]
+        else:
+            raise Exception("Implement exact solver")
+        if verbose:
+            print('Done...')
     core=tl.tenalg.multi_mode_dot(tensor, factors, transpose=True)
 
     return core, factors
-
-def l1pca(X, K, Qinit=[], solver="fixedpoint", verbose=False, tol=1e-6):
-    
-    D=X.shape[0]
-    N=X.shape[1]
-
-    if len(Qinit)==0:
-        Q=linalg.orth(np.random.randn(D,K))
-    else:
-        Q=Qinit
-    
-    if solver=='fixedpoint':
-        metric_across_iter=[]
-        metric_across_iter.append(l1pca_metric(X, Q))
-        while True:
-            Qnew=phi(X @ np.sign(X.T @ Q))
-            mnew=l1pca_metric(X, Qnew)
-            if mnew-metric_across_iter[-1]>tol:
-                Q=Qnew
-                metric_across_iter.append(l1pca_metric(X, Q))
-            else:
-                break
-        if verbose==True:
-            plt.plot(range(len(metric_across_iter)),metric_across_iter)
-            plt.ylabel('L1-PCA metric')
-            plt.xlabel('Iteration index')
-            plt.show()
-        return Q, metric_across_iter
-    elif solver=='bit-flipping':
-        pass # to be implemented
-    elif solver=='exact-exhaustive':
-        pass # to be implemented
-    elif solver=='exact-poly':
-        pass # to be implemented
-    else:
-        pass
-
-def phi(A):
-    K=A.shape[1]
-    U, S, Vt = linalg.svd(A)
-    return U[:,:K] @ Vt
-
-def l1pca_metric(X, Q):
-    return np.sum(np.abs((X.T @ Q).flatten()))
