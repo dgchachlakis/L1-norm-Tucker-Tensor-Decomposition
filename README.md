@@ -1,8 +1,8 @@
 # L1-norm-Tucker-Tensor-Decomposition
  Algorithms for robust and outlier-resistant L1-norm Tucker Tensor Decomposition.
 
-- l1hosvd.py implements L1-norm Tucker Tensor Decomposition by means of the L1-norm Higher-Order Singular Value Decomposition (<strong>L1-HOSVD<\strong>) algorithm appearing in [1,2,3].
-- l1hooi.py implements L1-norm Tucker Tensor Decomposition by means of the L1-norm Higher-Order Orthogonal Iterations (<strong>L1-HOOI<\strong>) algorithm appearing in [3,4].
+- l1hosvd.py implements L1-norm Tucker Tensor Decomposition by means of the L1-norm Higher-Order Singular Value Decomposition (<strong>L1-HOSVD</strong>) algorithm appearing in [1,2,3].
+- l1hooi.py implements L1-norm Tucker Tensor Decomposition by means of the L1-norm Higher-Order Orthogonal Iterations (<strong>L1-HOOI</strong>) algorithm appearing in [3,4].
 
 --------------------------------------------------------
 [1] P. P. Markopoulos, D. G. Chachlakis, and A. Prater-Bennette, <strong>L1-norm Higher-Order Singular-Value Decomposition</strong>, in Proceedings IEEE Global Conference on Signal and Information Processing (IEEE GlobalSIP 2018), Anaheim, CA, November 2018.
