@@ -47,4 +47,4 @@ def l1hooi(tensor, tensor_ranks, Qinit=[], solver="fixedpoint", verbose=False, t
             break
     
     core=tl.tenalg.multi_mode_dot(tensor, factors, modes=list(range(tensor.ndim)), transpose=True)
-    return factors, core, metric_across_iterations
+    return core, factors, metric_across_iterations
