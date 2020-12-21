@@ -5,7 +5,7 @@
 - l1hooi.py implements L1-norm Tucker Tensor Decomposition by means of the L1-norm Higher-Order Orthogonal Iterations (L1-HOOI) algorithm appearing in [3,4].
 
 --------------------------------------------------------
-[1] P. P. Markopoulos, D. G. Chachlakis, and A. Prater-Bennette, L1-norm Higher-Order Singular-Value Decomposition, in Proceedings IEEE Global Conference on Signal and Information Processing (IEEE GlobalSIP 2018), Anaheim, CA, November 2018.
+[1] P. P. Markopoulos, D. G. Chachlakis, and A. Prater-Bennette, <strong>L1-norm Higher-Order Singular-Value Decomposition<strong>, in Proceedings IEEE Global Conference on Signal and Information Processing (IEEE GlobalSIP 2018), Anaheim, CA, November 2018.
 
 - IEEEXplore Library: https://ieeexplore.ieee.org/document/8646385 
 - DOI: 10.1109/GlobalSIP.2018.8646385
