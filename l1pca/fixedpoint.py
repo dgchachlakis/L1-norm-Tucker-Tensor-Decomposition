@@ -1,11 +1,11 @@
 import numpy as np
 from scipy import linalg
 
-def l1pca_fixedpoint(X, K, Qinit=[], verbose=False, tol=1e-6):
+def fixedpoint(X, K, Qinit=[], verbose=False, tol=1e-6):
     
     def phi(A):
         K=A.shape[1]
-        U, S, Vt = linalg.svd(A)
+        U, S, Vt = np.linalg.svd(A)
         return U[:,:K] @ Vt
 
     def l1pca_metric(X, Q):

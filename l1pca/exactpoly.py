@@ -1,20 +1,16 @@
 import numpy as np
 import itertools
 import math
-from scipy import linalg
 
-def l1pca_exactpoly(X, K, half_sphere=True, verbose=False):
+def exactpoly(X, K, half_sphere=True, verbose=False):
     
     def phi(A):
         K=A.shape[1]
-        U, S, Vt = linalg.svd(A)
+        U, S, Vt = np.linalg.svd(A)
         return U[:,:K] @ Vt
 
     def l1pca_metric(X, Q):
         return np.sum(np.abs((X.T @ Q).flatten()))
-
-    def norm_nuc(A):
-        return np.sum(linalg.svd(A)[1].flatten())
 
     def mysign(x,tol=1e-7):
         x[np.abs(x)<tol]=0
@@ -32,8 +28,6 @@ def l1pca_exactpoly(X, K, half_sphere=True, verbose=False):
         return 2*B-1
 
     def compute_candidates(Q, half_sphere=True):
-
-    
         bDict = {}
         d=Q.shape[0]
         N=Q.shape[1]
@@ -47,15 +41,10 @@ def l1pca_exactpoly(X, K, half_sphere=True, verbose=False):
             b_ambiguous=mysign(Q.T @ c).flatten()
             for n in range(Bpool.shape[0]):
                 b=b_ambiguous.copy()
-                #print(b)
-                #print(Bpool)
                 try:
                     b[b==0]=Bpool[n,:].copy()
                 except:
-                    print(b_ambiguous.shape)
-                    print(b_ambiguous)
-                    print(b)
-                    print(Bpool)
+                    print('Error: Check tolerance of mysign function. The program exits.')
                     exit()
                 b=b[0]*b
                 signature=tuple(b)
@@ -85,7 +74,6 @@ def l1pca_exactpoly(X, K, half_sphere=True, verbose=False):
     Q=np.diag(S[:matrix_rank])@Vt[:matrix_rank,:]
     Bcandidates=compute_candidates(Q,half_sphere)
 
-
     Qopt=np.zeros((D,K))
     Bopt=np.zeros((N,K))
     metopt=0
@@ -95,9 +83,8 @@ def l1pca_exactpoly(X, K, half_sphere=True, verbose=False):
             b=np.array(btuple)
             met=np.linalg.norm(X @ b )
             if met>metopt:
-                Qopt=X @ b
-                Qopt=Qopt / np.linalg.norm(Qopt)
-                metopt=np.sum(np.abs(X.T @ Qopt).flatten())
+                Qopt=X @ b / np.linalg.norm(X @ b)
+                metopt=l1pca_metric(X, Qopt)
                 Bopt=b
         number_of_signatures_half_sphere=0
         for n in range(matrix_rank):
@@ -108,18 +95,16 @@ def l1pca_exactpoly(X, K, half_sphere=True, verbose=False):
             print('Number of candidates examined: \t\t\t' + str(len(Bcandidates)))
     else:
         BcandidatesMatrix=np.zeros((N,len(Bcandidates)))
-        BcandidatesIndices=np.zeros((len(Bcandidates),))
         for i,btuple in enumerate(Bcandidates):
             b=np.array(btuple)
             BcandidatesMatrix[:,i]=b
-            BcandidatesIndices[i]=i
-        for idx in itertools.product(BcandidatesIndices, repeat = K):
+        for idx in itertools.product(range(BcandidatesMatrix.shape[1]), repeat = K):
             Bcand=BcandidatesMatrix[:,np.array(idx).astype(np.int)]
             met=np.linalg.norm(X @ Bcand ,ord='nuc')
             if met>metopt:
                 Qopt=phi(X @ Bcand)
                 Bopt=Bcand
-                metopt=np.sum(np.abs(X.T @ Qopt).flatten())
+                metopt=l1pca_metric(X, Qopt)
    
 
     return Qopt, Bopt

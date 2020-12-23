@@ -1,7 +1,7 @@
 import tensorly as tl
-from l1pca_fixedpoint import *
-from l1pca_bitflipping import *
-from l1pca_exactpoly import *
+import l1pca 
+import numpy as np
+from scipy import linalg
 
 
 def l1hooi(tensor, tensor_ranks, Qinit=[], solver="fixed-point", verbose=False, tol=1e-6):
@@ -37,13 +37,13 @@ def l1hooi(tensor, tensor_ranks, Qinit=[], solver="fixed-point", verbose=False, 
             tensorAn=tl.tenalg.multi_mode_dot(tensor, factors[:n]+factors[n+1:], modes=modes, transpose=True)
             unfoldingAn=tl.unfold(tensorAn,n)
             if solver=='fixed-point':
-                factors[n]=l1pca_fixedpoint(unfoldingAn,tensor_ranks[n],factors[n], tol=tol)[0]
+                factors[n]=l1pca.fixedpoint(unfoldingAn,tensor_ranks[n],factors[n], tol=tol)[0]
             elif solver=='bit-flipping':
-                factors[n]=l1pca_bitflipping(unfoldingAn,tensor_ranks[n],factors[n], tol=tol)[0]
+                factors[n]=l1pca.bitflipping(unfoldingAn,tensor_ranks[n],factors[n], tol=tol)[0]
             elif solver=='exact-poly':
-                factors[n]=l1pca_exactpoly(unfoldingAn,tensor_ranks[n])[0]
+                factors[n]=l1pca.exactpoly(unfoldingAn,tensor_ranks[n])[0]
             else:
-                factors[n]=l1pca_exact(unfoldingAn,tensor_ranks[n])[0]
+                factors[n]=l1pca.exact(unfoldingAn,tensor_ranks[n])[0]
 
         metric_across_iterations.append(l1tucker_metric(tensor,factors))
         if metric_across_iterations[-1]-metric_across_iterations[-2]<tol:

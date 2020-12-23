@@ -1,18 +1,17 @@
 import numpy as np
 from scipy import linalg
-
-def l1pca_bitflipping(X, K, Qinit=[], verbose=False, tol=1e-6):
+def bitflipping(X, K, Qinit=[], verbose=False, tol=1e-6):
     
     def phi(A):
         K=A.shape[1]
-        U, S, Vt = linalg.svd(A)
+        U, S, Vt = np.linalg.svd(A)
         return U[:,:K] @ Vt
 
     def l1pca_metric(X, Q):
         return np.sum(np.abs((X.T @ Q).flatten()))
 
     def norm_nuc(A):
-        return np.sum(linalg.svd(A)[1].flatten())
+        return np.sum(np.linalg.svd(A)[1].flatten())
 
     D=X.shape[0]
     N=X.shape[1]

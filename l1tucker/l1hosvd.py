@@ -1,7 +1,8 @@
 import tensorly as tl
-from l1pca_fixedpoint import *
-from l1pca_bitflipping import *
-from l1pca_exactpoly import *
+import l1pca 
+import numpy as np
+from scipy import linalg
+
 
 def l1hosvd(tensor, tensor_ranks, Qinit=[], solver="fixedpoint", verbose=False, tol=1e-6):
     ndimensions=tensor.ndim
@@ -21,11 +22,11 @@ def l1hosvd(tensor, tensor_ranks, Qinit=[], solver="fixedpoint", verbose=False, 
         if verbose:
             print('Solving l1-pca of mode-'+str(n)+' unfolding...')
         if solver=='fixed-point':
-            factors[n]=l1pca_fixedpoint(nunfolding, tensor_ranks[n], factors[n], tol=tol)[0]
+            factors[n]=l1pca.fixedpoint(nunfolding, tensor_ranks[n], factors[n], tol=tol)[0]
         elif solver=='bit-flipping':
-            factors[n]=l1pca_bitflipping(nunfolding, tensor_ranks[n], factors[n], tol=tol)[0]
+            factors[n]=l1pca.bitflipping(nunfolding, tensor_ranks[n], factors[n], tol=tol)[0]
         elif solver=='exact-poly':
-            factors[n]=l1pca_exactpoly(nunfolding, tensor_ranks[n])[0]
+            factors[n]=l1pca.exactpoly(nunfolding, tensor_ranks[n])[0]
         else: 
             #factors[n]=l1pca_exact(nunfolding, tensor_ranks[n])[0]
             raise Exception('To be defined shortly')
