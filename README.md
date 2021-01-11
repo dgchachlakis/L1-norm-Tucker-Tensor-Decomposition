@@ -28,8 +28,7 @@ If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/documen
   pages={178454-178465},
   doi={10.1109/ACCESS.2019.2955134}}
 ```
-|[[1]](https://ieeexplore.ieee.org/document/8910610)|D. G. Chachlakis, A. Prater-Bennette and P. P. Markopoulos, "L1-Norm Tucker Tensor Decomposition," in IEEE Access, vol. 7, pp. 178454-178465, 2019, doi: 10.1109/ACCESS.2019.2955134.
-|
+|[[1]](https://ieeexplore.ieee.org/document/8910610)|D. G. Chachlakis, A. Prater-Bennette and P. P. Markopoulos, "L1-Norm Tucker Tensor Decomposition," in IEEE Access, vol. 7, pp. 178454-178465, 2019, doi: 10.1109/ACCESS.2019.2955134.|
 |-----|--------|
 
 ```
@@ -59,8 +58,7 @@ If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/documen
   doi={10.1109/ICASSP40776.2020.9053701}}
 ```
 
-|[[3]](https://ieeexplore.ieee.org/document/9053701)|D. G. Chachlakis, A. Prater-Bennette and P. P. Markopoulos, "L1-Norm Higher-Order Orthogonal Iterations for Robust Tensor Analysis," ICASSP 2020 - 2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Barcelona, Spain, 2020, pp. 4826-4830, doi: 10.1109/ICASSP40776.2020.9053701.
-|
+|[[3]](https://ieeexplore.ieee.org/document/9053701)|D. G. Chachlakis, A. Prater-Bennette and P. P. Markopoulos, "L1-Norm Higher-Order Orthogonal Iterations for Robust Tensor Analysis," ICASSP 2020 - 2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Barcelona, Spain, 2020, pp. 4826-4830, doi: 10.1109/ICASSP40776.2020.9053701.|
 |-----|--------|
 
 ---
