@@ -1,4 +1,6 @@
-__pychache__/
+__pycache__/
+utils/__pycache__/
 l1pca/__pycache__/
-l1tucker/__pycache__/
-tests/__pycache__/
+algorithm/__pycache__/
+tests/
+test1.py
