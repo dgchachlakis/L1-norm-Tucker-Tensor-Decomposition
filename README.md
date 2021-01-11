@@ -44,8 +44,7 @@ If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/documen
   doi={10.1109/GlobalSIP.2018.8646385}}
 ```
 
-[[2]](https://ieeexplore.ieee.org/document/8646385)|P. P. Markopoulos, D. G. Chachlakis and A. Prater-Bennette, "L1-NORM HIGHER-ORDER SINGULAR-VALUE DECOMPOSITION," 2018 IEEE Global Conference on Signal and Information Processing (GlobalSIP), Anaheim, CA, USA, 2018, pp. 1353-1357, doi: 10.1109/GlobalSIP.2018.8646385.
-|
+|[[2]](https://ieeexplore.ieee.org/document/8646385)|P. P. Markopoulos, D. G. Chachlakis and A. Prater-Bennette, "L1-NORM HIGHER-ORDER SINGULAR-VALUE DECOMPOSITION," 2018 IEEE Global Conference on Signal and Information Processing (GlobalSIP), Anaheim, CA, USA, 2018, pp. 1353-1357, doi: 10.1109/GlobalSIP.2018.8646385.|
 |-----|--------|
 
 ```
@@ -60,7 +59,7 @@ If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/documen
   doi={10.1109/ICASSP40776.2020.9053701}}
 ```
 
-[[3]](https://ieeexplore.ieee.org/document/9053701)|D. G. Chachlakis, A. Prater-Bennette and P. P. Markopoulos, "L1-Norm Higher-Order Orthogonal Iterations for Robust Tensor Analysis," ICASSP 2020 - 2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Barcelona, Spain, 2020, pp. 4826-4830, doi: 10.1109/ICASSP40776.2020.9053701.
+|[[3]](https://ieeexplore.ieee.org/document/9053701)|D. G. Chachlakis, A. Prater-Bennette and P. P. Markopoulos, "L1-Norm Higher-Order Orthogonal Iterations for Robust Tensor Analysis," ICASSP 2020 - 2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), Barcelona, Spain, 2020, pp. 4826-4830, doi: 10.1109/ICASSP40776.2020.9053701.
 |
 |-----|--------|
 
