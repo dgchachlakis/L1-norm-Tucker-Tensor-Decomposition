@@ -10,12 +10,12 @@ Specifically, we implement:
 IEEEXplore:
 * [1] https://ieeexplore.ieee.org/document/8910610
 * [2] https://ieeexplore.ieee.org/document/8646385
-* [3] https://ieeexplore.ieee.org/document/8910610
+* [3] https://ieeexplore.ieee.org/document/9053701
 
 ---
 **Citing**
 
-If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/document/8910610)-[[3]](https://ieeexplore.ieee.org/document/8910610).
+If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/document/8910610)-[[3]](https://ieeexplore.ieee.org/document/9053701).
 
 ```
 @ARTICLE{l1tucker,
