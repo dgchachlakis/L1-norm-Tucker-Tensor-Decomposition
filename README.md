@@ -17,7 +17,7 @@ IEEEXplore:
 
 If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/document/8910610)-[[3]](https://ieeexplore.ieee.org/document/9053701).
 
-```
+```bibtex
 @ARTICLE{l1tucker,
   author={D. G. {Chachlakis} and A. {Prater-Bennette} and P. P. {Markopoulos}},
   journal={IEEE Access}, 
@@ -31,7 +31,7 @@ If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/documen
 |[[1]](https://ieeexplore.ieee.org/document/8910610)|D. G. Chachlakis, A. Prater-Bennette and P. P. Markopoulos, "L1-Norm Tucker Tensor Decomposition," in IEEE Access, vol. 7, pp. 178454-178465, 2019, doi: 10.1109/ACCESS.2019.2955134.|
 |-----|--------|
 
-```
+```bibtex
 @INPROCEEDINGS{l1hosvd,
   author={P. P. {Markopoulos} and D. G. {Chachlakis} and A. {Prater-Bennette}},
   booktitle={2018 IEEE Global Conference on Signal and Information Processing (GlobalSIP)}, 
@@ -46,7 +46,7 @@ If you use our algorihtms, please cite [[1]](https://ieeexplore.ieee.org/documen
 |[[2]](https://ieeexplore.ieee.org/document/8646385)|P. P. Markopoulos, D. G. Chachlakis and A. Prater-Bennette, "L1-NORM HIGHER-ORDER SINGULAR-VALUE DECOMPOSITION," 2018 IEEE Global Conference on Signal and Information Processing (GlobalSIP), Anaheim, CA, USA, 2018, pp. 1353-1357, doi: 10.1109/GlobalSIP.2018.8646385.|
 |-----|--------|
 
-```
+```bibtex
 @INPROCEEDINGS{l1hooi,
   author={D. G. {Chachlakis} and A. {Prater-Bennette} and P. P. {Markopoulos}},
   booktitle={ICASSP 2020 - 2020 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)}, 
